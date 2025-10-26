@@ -4,3 +4,4 @@ namespace: demo-ns
 resources:
   - namespace.yaml
   - ../../app
+  - ingress.yaml
