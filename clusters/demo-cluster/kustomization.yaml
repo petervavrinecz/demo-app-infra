@@ -1,38 +1,6 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1
+apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-metadata:
-  name: demo-app
-  namespace: flux-system
-spec:
-  sourceRef:
-    kind: GitRepository
-    name: demo-gitops
-  path: ./app
-  interval: 5m0s
-  prune: true
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1
-kind: Kustomization
-metadata:
-  name: demo-infra
-  namespace: flux-system
-spec:
-  sourceRef:
-    kind: GitRepository
-    name: demo-gitops
-  path: ./infrastructure
-  interval: 5m0s
-  prune: true
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1
-kind: Kustomization
-metadata:
-  name: flux-image-infra
-  namespace: flux-system
-spec:
-  sourceRef:
-    kind: GitRepository
-    name: demo-gitops
-  path: ./clusters/demo-cluster/flux-system
-  interval: 5m0s
-  prune: true
+resources:
+  - ./flux-system
+  - ../../infrastructure
+  - ../../app
