@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: demo-app
-        image: ghcr.io/petervavrinecz/demo-app:1.0
+        image: ghcr.io/petervavrinecz/demo-app:1.0 # {"$imagepolicy": "flux-system:demo-app"}
         resources:
           limits:
             memory: "256Mi"
